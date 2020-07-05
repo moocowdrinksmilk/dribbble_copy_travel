@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelling_app/search/search_bar.dart';
 
 class Description extends StatelessWidget {
   const Description({
@@ -24,16 +25,21 @@ class Description extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          width: searchButtonSize,
-          height: searchButtonSize,
-          child: Icon(
-            Icons.search,
-            color: Colors.white,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => SearchBarPage()));
+          },
+          child: Container(
+            width: searchButtonSize,
+            height: searchButtonSize,
+            child: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.all(Radius.circular(8))),
           ),
-          decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.all(Radius.circular(8))),
         ),
       ],
     );
